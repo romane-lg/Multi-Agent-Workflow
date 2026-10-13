@@ -1,0 +1,12 @@
+{
+  "news_scrapper\\config.py": "47e43ac05c6fea2325b9e96d5b828e69ecabf9fc21ff047b29374eaaeb7a8116",
+  "news_scrapper\\config_v2.py": "317baae9ed78b29a733ebc976f3f90a3403116a7f885e36fb3077b2278e8df59",
+  "news_scrapper\\discover_v2.py": "3efcd8bd046656c8ff3ebc923613ed0acf68a0e7410aa19210459fe6952789d4",
+  "news_scrapper\\extract_content.py": "3e7b4ea23c96044fd66e6337590ee3c27f38cd33fe0fed9c693ea11debc22213",
+  "news_scrapper\\news_dataset.json": "a83029b75196ca6c2123121d6b729aefe26afab4cc5d6d0fc3441feb2974d2bf",
+  "news_scrapper\\news_dataset_enriched_test5.json": "aef1dd37713cfbe3c355d24bdc11516740a1e78f169e4327ad68e1dc6d3f80d8",
+  "news_scrapper\\news_dataset_v2_pilot.json": "b780bc77a668bd9cb97f07fbf9989227bb2d758489e134206d08149ad5b4c6bc",
+  "news_scrapper\\scrape_news.py": "b739841c477bb96a15a5d0f742ebacad548ec1fc06b2f6aeed611b542b523593",
+  "news_scrapper\\test_discover_v2.py": "d5c722d65e763ff6d92a3c62335a386c4eae0137250a39500ff6a5a03833f0b3",
+  "news_scrapper\\V2_README.md": "75190903bdfc8d3b54733799a019adc45b363ac87a4342412b6c81e850c2f59d"
+}

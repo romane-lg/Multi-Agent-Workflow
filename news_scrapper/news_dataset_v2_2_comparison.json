@@ -1,0 +1,241 @@
+{
+  "original": {
+    "api_request_attempts": 9,
+    "status": "completed",
+    "returned": 343,
+    "candidate_counts": {
+      "accepted": 48,
+      "rejected": 292,
+      "review": 3
+    },
+    "unique_urls": 244,
+    "unique_url_counts": {
+      "accepted": 43,
+      "rejected": 198,
+      "review": 3
+    },
+    "occurrence_acceptance_rate": 0.13994169096209913,
+    "unique_url_acceptance_rate": 0.1762295081967213,
+    "accepted_publisher_distribution": {
+      "bevnet.com": 34,
+      "foodnavigator-usa.com": 2,
+      "foodbev.com": 7
+    },
+    "returned_publisher_distribution": {
+      "bevnet.com": 257,
+      "foodbev.com": 31,
+      "foodnavigator-usa.com": 55
+    },
+    "duplicate_url_count": 71,
+    "extra_associations": 99,
+    "accepted_duplicate_url_count": 10,
+    "reason_incidence": {
+      "excluded_url_pattern": 69,
+      "entity_not_confirmed": 285,
+      "entity_ambiguous": 5,
+      "excluded_title_term": 4,
+      "unsupported_page_type": 5,
+      "outside_date_window": 9
+    },
+    "http_statuses": {
+      "200": 8,
+      "None": 1
+    },
+    "errors": [
+      "interrupted_response_not_saved_charge_unknown"
+    ]
+  },
+  "revised": {
+    "api_request_attempts": 8,
+    "status": "completed",
+    "returned": 121,
+    "candidate_counts": {
+      "accepted": 97,
+      "rejected": 23,
+      "review": 1
+    },
+    "unique_urls": 67,
+    "unique_url_counts": {
+      "accepted": 52,
+      "rejected": 14,
+      "review": 1
+    },
+    "occurrence_acceptance_rate": 0.8016528925619835,
+    "unique_url_acceptance_rate": 0.7761194029850746,
+    "accepted_publisher_distribution": {
+      "bevnet.com": 41,
+      "foodbev.com": 9,
+      "foodnavigator-usa.com": 2
+    },
+    "returned_publisher_distribution": {
+      "bevnet.com": 99,
+      "foodbev.com": 16,
+      "foodnavigator-usa.com": 6
+    },
+    "duplicate_url_count": 50,
+    "extra_associations": 54,
+    "accepted_duplicate_url_count": 45,
+    "reason_incidence": {
+      "excluded_url_pattern": 11,
+      "excluded_title_term": 6,
+      "url_only_company_evidence": 1,
+      "unsupported_page_type": 1,
+      "outside_date_window": 7
+    },
+    "http_statuses": {
+      "200": 8
+    },
+    "errors": []
+  },
+  "by_company_dimension": [
+    {
+      "company": "Olipop",
+      "dimension": "products",
+      "original": {
+        "returned_count": 13,
+        "accepted_count": 3,
+        "rejected_count": 10,
+        "review_count": 0
+      },
+      "revised": {
+        "returned_count": 16,
+        "accepted_count": 13,
+        "rejected_count": 3,
+        "review_count": 0
+      }
+    },
+    {
+      "company": "Olipop",
+      "dimension": "business",
+      "original": {
+        "returned_count": 73,
+        "accepted_count": 12,
+        "rejected_count": 61,
+        "review_count": 0
+      },
+      "revised": {
+        "returned_count": 14,
+        "accepted_count": 12,
+        "rejected_count": 2,
+        "review_count": 0
+      }
+    },
+    {
+      "company": "Poppi",
+      "dimension": "products",
+      "original": {
+        "returned_count": 17,
+        "accepted_count": 2,
+        "rejected_count": 15,
+        "review_count": 0
+      },
+      "revised": {
+        "returned_count": 20,
+        "accepted_count": 17,
+        "rejected_count": 3,
+        "review_count": 0
+      }
+    },
+    {
+      "company": "Poppi",
+      "dimension": "business",
+      "original": {
+        "returned_count": 86,
+        "accepted_count": 15,
+        "rejected_count": 71,
+        "review_count": 0
+      },
+      "revised": {
+        "returned_count": 19,
+        "accepted_count": 16,
+        "rejected_count": 2,
+        "review_count": 1
+      }
+    },
+    {
+      "company": "Culture Pop",
+      "dimension": "products",
+      "original": {
+        "returned_count": 6,
+        "accepted_count": 0,
+        "rejected_count": 6,
+        "review_count": 0
+      },
+      "revised": {
+        "returned_count": 21,
+        "accepted_count": 11,
+        "rejected_count": 10,
+        "review_count": 0
+      }
+    },
+    {
+      "company": "Culture Pop",
+      "dimension": "business",
+      "original": {
+        "returned_count": 48,
+        "accepted_count": 5,
+        "rejected_count": 40,
+        "review_count": 3
+      },
+      "revised": {
+        "returned_count": 11,
+        "accepted_count": 8,
+        "rejected_count": 3,
+        "review_count": 0
+      }
+    },
+    {
+      "company": "Zevia",
+      "dimension": "products",
+      "original": {
+        "returned_count": 13,
+        "accepted_count": 1,
+        "rejected_count": 12,
+        "review_count": 0
+      },
+      "revised": {
+        "returned_count": 10,
+        "accepted_count": 10,
+        "rejected_count": 0,
+        "review_count": 0
+      }
+    },
+    {
+      "company": "Zevia",
+      "dimension": "business",
+      "original": {
+        "returned_count": 87,
+        "accepted_count": 10,
+        "rejected_count": 77,
+        "review_count": 0
+      },
+      "revised": {
+        "returned_count": 10,
+        "accepted_count": 10,
+        "rejected_count": 0,
+        "review_count": 0
+      }
+    }
+  ],
+  "original_accepted_urls_retained": 43,
+  "new_accepted_urls": [
+    "https://www.bevnet.com/news/2025/daily-briefing-insiders-only-poppi-super-bowl-fallout-continues-as-rivals-pile-on/",
+    "https://www.bevnet.com/news/2025/distribution-roundup-elmhurst-innovates-into-whole-foods-culture-pop-to-target/",
+    "https://www.bevnet.com/news/2025/new-president-mel-landis-on-the-olipop-unicorn/",
+    "https://www.bevnet.com/news/2026/culture-pop-founder-tom-firsts-challenger-mindset/",
+    "https://www.bevnet.com/news/2026/new-products-apple-soda-for-olipop-proda-culture-pop/",
+    "https://www.bevnet.com/news/2026/new-products-collabs-from-starbucks-and-culture-pop-wicked-cold-brew-and-nobull-nutrition/",
+    "https://www.bevnet.com/pr/2026/09/08/culture-pop-soda-welcomes-fall-with-new-limitededition-sparkling-apple-flavor",
+    "https://www.foodbev.com/news/culture-pop-launches-sparkling-raspberry-lemonade-soda",
+    "https://www.foodbev.com/post301/pepsico-releases-prebiotic-cola-just-months-after-poppi-acquisition"
+  ],
+  "original_artifacts_hash_verified": true,
+  "recommendation": "Proceed to separately approved full V2.2 collection as title-confirmed company evidence; dimensions remain provenance.",
+  "limitations": [
+    "Acceptance rate measures rule eligibility, not independently verified relevance.",
+    "Search dates and title operator are hints; local filters remain authoritative.",
+    "No article bodies fetched; topic and primary-company relevance are unverified.",
+    "Uniform query and entity changes were tested together; separate causal contributions are not identified.",
+    "Trade-only pilot does not validate recall or precision in other source groups."
+  ]
+}

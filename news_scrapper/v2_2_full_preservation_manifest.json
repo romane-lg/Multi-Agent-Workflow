@@ -1,0 +1,23 @@
+{
+  "news_scrapper\\config.py": "47e43ac05c6fea2325b9e96d5b828e69ecabf9fc21ff047b29374eaaeb7a8116",
+  "news_scrapper\\config_v2.py": "317baae9ed78b29a733ebc976f3f90a3403116a7f885e36fb3077b2278e8df59",
+  "news_scrapper\\config_v2_2.py": "0b811a6b4a6bbed532761067e42cdd54097ec8c60d9b465637c19361c63fb78f",
+  "news_scrapper\\discover_v2.py": "3efcd8bd046656c8ff3ebc923613ed0acf68a0e7410aa19210459fe6952789d4",
+  "news_scrapper\\discover_v2_2.py": "025852ccc66129ad2a921264e5946fb08a0cedada91f4ebd6d68a2fd097abca3",
+  "news_scrapper\\extract_content.py": "3e7b4ea23c96044fd66e6337590ee3c27f38cd33fe0fed9c693ea11debc22213",
+  "news_scrapper\\news_dataset.json": "a83029b75196ca6c2123121d6b729aefe26afab4cc5d6d0fc3441feb2974d2bf",
+  "news_scrapper\\news_dataset_enriched_test5.json": "aef1dd37713cfbe3c355d24bdc11516740a1e78f169e4327ad68e1dc6d3f80d8",
+  "news_scrapper\\news_dataset_v2_2_comparison.json": "6d0e489cdf10723602ed6567c05152092ddd3da89b628fa5bb1a90542ce6f12c",
+  "news_scrapper\\news_dataset_v2_2_pilot.json": "f1f1430f3d0de8e92eadeead5d8a0f42301c5edb0fbc96d9afdf423a95224605",
+  "news_scrapper\\news_dataset_v2_pilot.json": "b780bc77a668bd9cb97f07fbf9989227bb2d758489e134206d08149ad5b4c6bc",
+  "news_scrapper\\scrape_news.py": "b739841c477bb96a15a5d0f742ebacad548ec1fc06b2f6aeed611b542b523593",
+  "news_scrapper\\test_discover_v2.py": "d5c722d65e763ff6d92a3c62335a386c4eae0137250a39500ff6a5a03833f0b3",
+  "news_scrapper\\test_discover_v2_2.py": "9180a152b15b33969cefa85c3d314b025578858f29e0b4ad797462e0066cc078",
+  "news_scrapper\\V2_2_PILOT_REPORT.md": "354db9a9da4cf7dd5a77c35f2f33c5fc3051908b373d6630661806de2b59974f",
+  "news_scrapper\\v2_2_preservation_manifest.json": "8109e3fb73a20fc8308d2af0a7e118eeee3ce2d5f4b5bc31a2ec4be9ea7e5534",
+  "news_scrapper\\V2_2_README.md": "8470a7593fea8cc66331472e04d4914b77252a424d778f18585cabb38a36dc97",
+  "news_scrapper\\V2_README.md": "75190903bdfc8d3b54733799a019adc45b363ac87a4342412b6c81e850c2f59d",
+  "crew_ai\\data.py": "b186b918869ae5a368cc151fac7ea954eacaaa629c6390da06dec5d502a4b682",
+  "crew_ai\\framework.py": "9e70b27fd5675c7dfaed0a57370d85c7eda7f1f75043ad51c0e31fe7dabb4882",
+  "crew_ai\\__init__.py": "0c3ee4651493cfc164b03fba8455f04ace8323fb89c453f767351df6c2079b8a"
+}
