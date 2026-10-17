@@ -1,0 +1,2 @@
+-r requirements-researcher.txt
+crewai==1.6.1

@@ -223,3 +223,10 @@ __marimo__/
 #git ignore
 news_scrapper/news_dataset_v2_2_full_recovered_checkpoint.json
 news_scrapper/v2_2_full_checkpoint_incident.json
+
+# Local source snapshots, traces, and Researcher outputs
+.researcher/
+mlruns/
+mlartifacts/
+/mlflow.db
+/mlflow.db-*
