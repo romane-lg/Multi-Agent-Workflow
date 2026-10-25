@@ -39,6 +39,32 @@ issues in report_issues, not an unrelated item's slot. Do not duplicate a cross-
 issue under every item. Code attaches exact targets and generates issue IDs, item
 dispositions and overall verdicts from your issue severities; do not generate those links.
 
+Complete EVERY fact_checks entry. Each is one exact sentence from observed_fact.
+supported requires support for EVERY clause, brand, number, attribution, geography and
+time claim. Supply exact source excerpts in anchors from that insight's actual cited
+paragraphs (including its linked findings' citations). A quote about Poppi does not
+support a joint claim about Poppi AND Olipop. Use partial when some clauses lack support;
+use unsupported when the sentence lacks support. Both force a blocking correction in code.
+Quotes prove you inspected a paragraph, not entailment: explain how the whole claim follows.
+An accurate claim with the wrong citation still requires citation repair. Never use search
+similarity, repeated press releases, or the Researcher's paraphrase as proof.
+
+Complete risk_checks for EVERY item: chronology, geography, causality, company_constraints.
+Use issue with a concrete correction for material errors; code makes these blocking.
+Use not_applicable only when that risk does not apply, and explain why. In particular:
+- A 2024 decline cannot establish failure of a 2026 campaign. Later growth and earlier
+  decline need separate periods; neither proves campaign causation without a suitable design.
+- National Canadian distribution does not prove Ontario/BC store counts, velocity or demand.
+  A Target US format launch is not a Canadian launch.
+- A launch/brand announcement or engagement metric is not measured trial, repeat or ROI.
+- No observed Canadian pricing trigger means discounted multipacks may be a margin-controlled
+  test, not an evidence-established need to accelerate discounts. Preserve company gross
+  margin objectives versus the separate retail margin floor.
+- Berry Social is underperforming: merely matching it is not a validated success gate.
+  Use management's documented product targets and require an approved repeat benchmark.
+- Proposed test dates and budgets are assumptions, not approved management commitments.
+Honest missing data should stay a gap, not be promoted to a blocking error by itself.
+
 Return explanations for all four criteria. Every issue needs blocking/advisory severity,
 its criterion, precise explanation and a concrete required_correction.
 For each issue cite the pertinent ORIGINAL article_id/paragraph_id, finding IDs or brief
@@ -61,14 +87,14 @@ and never runs a correction loop. Your sole output must match the required respo
 def build_reviewer_crew(review_input: dict):
     from crewai import Agent, Crew, LLM, Process, Task
 
-    llm = LLM(model=os.getenv("REVIEWER_MODEL", "gpt-4o-mini"), temperature=0,
-              max_tokens=11000, timeout=180, max_retries=0)
+    llm = LLM(model=os.getenv("REVIEWER_MODEL", "gpt-4.1"), temperature=0,
+              max_tokens=22000, timeout=240, max_retries=0)
     agent = Agent(
         role="Independent Fizzera Evidence Reviewer",
         goal="Identify specific source-support, interpretation, company-fit and completeness issues before accepting analysis.",
         backstory="You verify the Analyst's claims independently against original sources and distinguish material errors from honest evidence gaps.",
         llm=llm, tools=[], allow_delegation=False, verbose=False,
-        max_iter=1, max_retry_limit=0, max_execution_time=240, respect_context_window=False,
+        max_iter=1, max_retry_limit=0, max_execution_time=300, respect_context_window=False,
     )
     response_model = build_review_response_model(review_input)
     revision_instructions = ""

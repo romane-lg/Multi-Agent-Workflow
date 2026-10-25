@@ -146,7 +146,7 @@ class ExecutiveTests(unittest.TestCase):
         crew = SimpleNamespace(agents=[SimpleNamespace(llm=SimpleNamespace(model="fixture"))],
                                kickoff=lambda **kw: output)
         target = self.root / "executive"
-        with patch("executive.workflow.build_executive_crew", return_value=crew):
+        with patch("executive.workflow.build_executive_crew", return_value=crew), patch('executive.audit.audit_executive', return_value={'passed': True}):
             result = ExecutiveOutputFlow(analysis_run=self.analysis, review_dir=self.review, output_dir=target).kickoff()
         self.assertEqual(result["presentation_status"], "completed")
         self.assertEqual(result["publication_status"], "hold_for_human_review")
@@ -163,6 +163,40 @@ class ExecutiveTests(unittest.TestCase):
         self.assertEqual(crew.agents[0].max_iter, 1)
         self.assertFalse(crew.memory)
 
+    def test_failed_final_prose_audit_holds_an_upstream_pass(self):
+        self.save_review(blocked=False)
+        value = brief()
+        output = SimpleNamespace(raw=value.model_dump_json(), pydantic=value, token_usage=None)
+        crew = SimpleNamespace(agents=[SimpleNamespace(llm=SimpleNamespace(model='fixture'))], kickoff=lambda **kw: output)
+        with patch('executive.workflow.build_executive_crew', return_value=crew), patch('executive.audit.audit_executive', return_value={'passed': False}):
+            result = ExecutiveOutputFlow(analysis_run=self.analysis, review_dir=self.review, output_dir=self.root/'held_editor').kickoff()
+        self.assertEqual(result['publication_status'], 'hold_for_human_review')
+        self.assertIn('pending human review', (self.root/'held_editor/executive_brief.html').read_text())
+
+    def test_editorial_audit_cannot_invent_source_excerpts(self):
+        from executive.audit import editorial_fields, validate_audit
+        payload = self.inputs()
+        checks = {key: {'verdict': 'supported', 'explanation': 'Transport fixture.',
+                  'source_anchors': [{'article_id': 'a1', 'paragraph_id': 'p1', 'excerpt': 'Invented unsupported quotation.'}],
+                  'brief_anchors': [], 'required_correction': ''} for key in editorial_fields(brief())}
+        with self.assertRaisesRegex(ValueError, 'excerpt'):
+            validate_audit(checks, brief(), payload)
+
+    def test_saved_executive_response_finalizes_without_a_model_call(self):
+        from executive.workflow import finalize_saved_executive
+        target = self.root/'saved_executive'
+        target.mkdir()
+        payload = self.inputs()
+        (target/'executive_input.json').write_text(json.dumps(payload))
+        value = brief()
+        value.topics.bc_expansion.caveat = 'BC evidence is still incomplete and requires a local check before any expansion commitment is considered by the Fizzera management team.'
+        (target/'executive_raw.txt').write_text(value.model_dump_json())
+        with patch('executive.workflow.build_executive_crew',side_effect=AssertionError('Must not call a model')):
+            result = finalize_saved_executive(analysis_run=self.analysis,review_dir=self.review,output_dir=target,model='fixture')
+        self.assertFalse(result['model_call_repeated'])
+        self.assertEqual(result['publication_status'],'hold_for_human_review')
+        self.assertTrue((target/'executive_brief.html').exists())
+
     def test_integrated_flow_places_executive_after_review(self):
         from analyst.workflow import run_workflow
         from analyst.test_workflow import evidence, report
@@ -171,11 +205,12 @@ class ExecutiveTests(unittest.TestCase):
         analysis_report = report()
         analyst_crew = SimpleNamespace(kickoff=lambda **kw: events.append("analyst") or SimpleNamespace(
             raw=analysis_report.model_dump_json(), pydantic=analysis_report, token_usage=None))
+        from reviewer.test_reviewer import live_response
         review_assessment = with_issue()
         review_crew = SimpleNamespace(agents=[SimpleNamespace(llm=SimpleNamespace(model="fixture"))],
             tasks=[SimpleNamespace(description="Fixture instructions")],
             kickoff=lambda **kw: events.append("reviewer") or SimpleNamespace(
-                raw=review_assessment.model_dump_json(), pydantic=review_assessment, token_usage=None))
+                raw=json.dumps(live_response(review_assessment)), pydantic=None, token_usage=None))
         value = brief()
         executive_crew = SimpleNamespace(agents=[SimpleNamespace(llm=SimpleNamespace(model="fixture"))],
             kickoff=lambda **kw: events.append("executive") or SimpleNamespace(
@@ -184,7 +219,7 @@ class ExecutiveTests(unittest.TestCase):
         source.write_text(json.dumps(evidence()))
         target = self.root / "integrated"
         target.mkdir()
-        with patch("analyst.workflow.extract_brief", return_value=company_brief()), patch("analyst.workflow.build_analyst_crew", return_value=analyst_crew), patch("reviewer.service.build_reviewer_crew", return_value=review_crew), patch("executive.workflow.build_executive_crew", return_value=executive_crew):
+        with patch("analyst.workflow.extract_brief", return_value=company_brief()), patch("analyst.workflow.build_analyst_crew", return_value=analyst_crew), patch("reviewer.service.build_reviewer_crew", return_value=review_crew), patch("executive.workflow.build_executive_crew", return_value=executive_crew), patch('executive.audit.audit_executive', return_value={'passed': True}):
             result = run_workflow.__wrapped__(executive=True, brief_path=Path("brief.pdf"), output_dir=target,
                                               as_of_date="2026-10-16", research_output_path=source)
         self.assertEqual(events, ["analyst", "reviewer", "executive"])

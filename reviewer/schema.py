@@ -81,6 +81,19 @@ class ItemDecision(StrictModel):
     issues: list[LocalIssue]
 
 
+class RiskDecision(StrictModel):
+    status: Literal['clear', 'issue', 'not_applicable']
+    explanation: str
+    required_correction: str
+
+
+class RiskChecks(StrictModel):
+    chronology: RiskDecision
+    geography: RiskDecision
+    causality: RiskDecision
+    company_constraints: RiskDecision
+
+
 class CriterionExplanations(StrictModel):
     source_support: str
     interpretation: str
@@ -102,6 +115,7 @@ def item_slots(review_input: dict) -> dict[str, tuple[str, str]]:
 
 
 def build_review_response_model(review_input: dict):
+    from reviewer.evidence import fact_response_model
     # Required object fields prevent an otherwise valid response from silently
     # omitting recommendation or competitor checks in an open-ended list.
     fields = {slot: (ItemDecision, Field(description=f"Review {kind} {item_id}"))
@@ -114,11 +128,46 @@ def build_review_response_model(review_input: dict):
         extra["feedback_resolution"] = (resolutions, ...)
     return create_model("CompleteReviewResponse", __base__=StrictModel,
                         criteria=(CriterionExplanations, ...), item_reviews=(checks, ...),
+                        fact_checks=(fact_response_model(review_input), ...),
+                        risk_checks=(create_model('RequiredItemRisks', __base__=StrictModel,
+                            **{slot: (RiskChecks, ...) for slot in fields}), ...),
                         report_issues=(list[LocalIssue], ...), limitations=(list[str], ...), **extra)
 
 
 def normalize_assessment(generated: dict, review_input: dict) -> ReviewAssessment:
     if "item_reviews" in generated:
+        import copy
+        generated = copy.deepcopy(generated)
+        if 'fact_checks' in generated:
+            from reviewer.evidence import sentence_checks, validate_fact_checks
+            validate_fact_checks(generated['fact_checks'], review_input)
+            target_slots = {target: slot for slot, target in item_slots(review_input).items()}
+            for key, check in sentence_checks(review_input).items():
+                value = generated['fact_checks'][key]
+                if value['verdict'] != 'supported':
+                    generated['item_reviews'][target_slots[('market_insight', check['insight_id'])]]['issues'].append({
+                        'severity': 'blocking', 'criterion': 'source_support', 'category': 'unsupported_claim',
+                        'problem': check['claim'] + ' — ' + value['explanation'],
+                        'evidence': {'finding_ids': [], 'citations': [
+                            {'article_id': a['article_id'], 'paragraph_id': a['paragraph_id']} for a in value['anchors']]},
+                        'brief_pages': [], 'required_correction': value['required_correction']})
+        if 'risk_checks' in generated:
+            if set(generated['risk_checks']) != set(item_slots(review_input)):
+                raise ValueError('Every item requires all risk checks')
+            categories = {'chronology': ('interpretation', 'temporal_context'), 'geography': ('interpretation', 'geography'),
+                          'causality': ('interpretation', 'causality'), 'company_constraints': ('company_fit', 'company_fit')}
+            for slot, risks in generated['risk_checks'].items():
+                parsed = RiskChecks.model_validate(risks)
+                for name, value in parsed.model_dump().items():
+                    if not value['explanation'].strip():
+                        raise ValueError('Risk check needs an explanation')
+                    if value['status'] == 'issue':
+                        if not value['required_correction'].strip():
+                            raise ValueError('Risk issue requires a correction')
+                        criterion, category = categories[name]
+                        generated['item_reviews'][slot]['issues'].append({'severity': 'blocking', 'criterion': criterion,
+                            'category': category, 'problem': value['explanation'], 'required_correction': value['required_correction'],
+                            'evidence': {'finding_ids': [], 'citations': []}, 'brief_pages': []})
         slots = item_slots(review_input)
         if set(generated["item_reviews"]) != set(slots):
             raise ValueError("Required per-item review slots are missing or unknown")

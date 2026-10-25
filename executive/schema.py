@@ -22,7 +22,7 @@ class TopicCard(StrictModel):
     implication: str = Field(description="At most 25 words: why this matters to Fizzera.")
     action: str = Field(description="At most 25 words: concrete next action already supported by the Analyst recommendation, phrased as a proposal.")
     metric_or_gate: str = Field(description="At most 20 words: existing success measure or evidence needed before deciding. No invented KPI, date or budget.")
-    caveat: str = Field(description="At most 20 words: material uncertainty or unresolved review issue. Plain language.")
+    caveat: str = Field(description="At most 25 words: material uncertainty or unresolved review issue. Plain language.")
 
 
 class TopicBuckets(StrictModel):

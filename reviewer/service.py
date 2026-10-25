@@ -18,14 +18,23 @@ def save_json(path: Path, value: dict):
 
 
 def perform_review(review_input: dict, context: str, output_dir: Path) -> dict:
+    from reviewer.evidence import focused_review_context
+    context = focused_review_context(review_input)
     output_dir.mkdir(parents=True, exist_ok=False)
     save_json(output_dir / "review_input.json", review_input)
     (output_dir / "review_input.txt").write_text(context, encoding="utf-8")
     started = time.monotonic()
     crew = build_reviewer_crew(review_input)
+    if review_input['upstream_handoff']['researcher_output'].get('run',{}).get('mode') == 'full_corpus_batched':
+        from corpus.budget import check_context
+        check_context(context,crew.agents[0].llm.model)
     output = crew.kickoff(inputs={"review_context": context})
     (output_dir / "reviewer_raw.txt").write_text(output.raw, encoding="utf-8")
     generated = output.pydantic.model_dump() if output.pydantic else json.loads(output.raw)
+    # Live reviews always use the strict schema; historical saved assessments
+    # remain readable without pretending they performed these newer checks.
+    generated = build_review_response_model(review_input).model_validate(generated).model_dump()
+    save_json(output_dir / 'evidence_checks.json', {'fact_checks': generated['fact_checks'], 'risk_checks': generated['risk_checks']})
     if "revision_feedback" in review_input:
         # Validate every resolution slot before accepting the recheck.
         generated = build_review_response_model(review_input).model_validate(generated).model_dump()
@@ -42,6 +51,9 @@ def perform_review(review_input: dict, context: str, output_dir: Path) -> dict:
         "output_schema_sha256": digest(build_review_response_model(review_input).model_json_schema()),
         "correction_loop_enabled": False, "correction_attempts": 0,
         "benchmark_evaluation_run": False,
+        "evidence_policy": "sentence-anchors-and-item-risks-v1",
+        "evidence_checks": {'fact_checks': generated['fact_checks'], 'risk_checks': generated['risk_checks']},
+        "working_context": "full cited articles plus supplementary TF-IDF hits; full corpus frozen in review_input.json",
     }
     if "revision_feedback" in review_input:
         run.update(correction_loop_enabled=True, correction_attempts=1,

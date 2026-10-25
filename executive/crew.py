@@ -18,6 +18,13 @@ Use the original article paragraphs to avoid repeating inaccurate Analyst wordin
 If a draft claim conflicts with source wording, omit the claim or express only the narrower
 supported point; do not silently repair the underlying analysis or certify its correctness.
 Reviewer feedback is also fallible: preserve uncertainty rather than accepting it blindly.
+Do not broaden Poppi-only messaging evidence to Olipop. Keep Canadian national listings
+distinct from proven Ontario/BC performance. A 2024 sales decline does not establish that
+a later celebrity campaign failed. Announced flavors are not measured trial or repeat.
+Discounted multipacks require a margin-controlled test, unless a Canadian pricing trigger
+is actually documented. Do not use underperforming Berry Social as a product success gate.
+Use documented launch objectives and an approved repeat benchmark instead. Preserve the
+company's concept selection and consumer testing deadlines when presenting product tests.
 For reviewed/contested actions use conditional, test or evidence-gathering language. Never
 turn needs_evidence/propose_test into an approved launch, commitment or spend authorization.
 
@@ -54,9 +61,10 @@ FINAL_EDITORIAL_CHECK = """
 FINAL EDITORIAL CHECK BEFORE RETURNING YOUR RESPONSE:
 - Qualitative market signals only: NO digits, percentage boosts, revenue figures or years.
 - Include Olipop as well as Poppi; describe their moves without claiming causal effectiveness.
-- This pilot's source reports describe US activity. NEVER call those observations
-  "Ontario scope", "Ontario-relevant" evidence, or observed Ontario market outcomes.
-  Ontario is Fizzera's application context; Canadian transfer remains unvalidated.
+- Determine geography from each actual source. Never call US observations "Ontario
+  scope" or observed Ontario outcomes. Canadian stories may support Canadian statements
+  only to their documented scope. Ontario is Fizzera's application context; transfer
+  from other markets remains unvalidated unless the evidence establishes it.
 - Treat influencer activity as a testable analogy. No "proven effective" or causal sales claim.
 - Canadian awareness survey figures in the brief are explicitly fictional. Do not present
   them as measured baselines. Use a validation/evidence gate or label a target as proposed.

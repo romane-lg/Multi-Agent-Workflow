@@ -30,7 +30,7 @@ class Article(StrictModel):
     access_note: str
     text_sha256: str
     paragraphs: list[Paragraph]
-    retrieval_method: Literal["http_extractor", "public_web_reader", "manual_import"] = "http_extractor"
+    retrieval_method: Literal["http_extractor", "public_web_reader", "manual_import", "browser_rendered"] = "http_extractor"
     retrieved_at: str | None = None
 
 
@@ -43,7 +43,7 @@ class Finding(StrictModel):
     finding_id: str
     claim: str = Field(description="One short factual finding, with attribution and time context.")
     publication_date: str = Field(description="Exact ISO publication date of the cited article; not the event date.")
-    companies: list[Literal["Olipop", "Poppi", "Culture Pop", "Zevia", "PepsiCo", "other"]]
+    companies: list[Literal["Olipop", "Poppi", "Culture Pop", "Zevia", "Cove Soda", "Crazy D's", "PepsiCo", "other"]]
     dimension: Literal["products", "pricing", "retail", "marketing", "business", "consumers", "market"]
     evidence_type: Literal["market_development", "competitor_action", "reported_outcome", "executive_opinion"]
     attribution: str

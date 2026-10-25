@@ -14,7 +14,7 @@ def prose_fields(brief: ExecutiveBrief):
             raise ValueError("Market signals must be qualitative; dates and source details are rendered separately")
         yield signal.text, 40
     for card in brief.topics.model_dump().values():
-        for field, limit in (("implication", 25), ("action", 25), ("metric_or_gate", 20), ("caveat", 20)):
+        for field, limit in (("implication", 25), ("action", 25), ("metric_or_gate", 20), ("caveat", 25)):
             yield card[field], limit
 
 

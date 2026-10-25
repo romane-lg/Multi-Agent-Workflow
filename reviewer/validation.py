@@ -12,6 +12,26 @@ def expected_targets(review_input: dict) -> dict[str, set[str]]:
 
 
 def finalize_review(assessment: ReviewAssessment, review_input: dict, run: dict) -> ReviewResult:
+    if run.get('evidence_policy') == 'sentence-anchors-and-item-risks-v1':
+        from reviewer.evidence import sentence_checks, validate_fact_checks
+        from reviewer.schema import item_slots, RiskChecks
+        checks = run['evidence_checks']
+        validate_fact_checks(checks['fact_checks'], review_input)
+        for key, claim in sentence_checks(review_input).items():
+            if checks['fact_checks'][key]['verdict'] != 'supported' and not any(
+                i.severity == 'blocking' and i.target_type == 'market_insight' and claim['insight_id'] in i.target_ids
+                and claim['claim'] in i.problem for i in assessment.issues):
+                raise ValueError('A failed sentence check cannot be omitted from blocking issues')
+        slots = item_slots(review_input)
+        if set(checks['risk_checks']) != set(slots):
+            raise ValueError('Every item requires risk checks')
+        categories = {'chronology': 'temporal_context', 'geography': 'geography', 'causality': 'causality', 'company_constraints': 'company_fit'}
+        for slot, risks in checks['risk_checks'].items():
+            for name, risk in RiskChecks.model_validate(risks).model_dump().items():
+                kind, target = slots[slot]
+                if risk['status'] == 'issue' and not any(i.severity == 'blocking' and i.target_type == kind
+                    and target in i.target_ids and i.category == categories[name] for i in assessment.issues):
+                    raise ValueError('A failed risk check cannot be omitted from blocking issues')
     upstream = review_input["upstream_handoff"]
     researcher = upstream["researcher_output"]
     targets = expected_targets(review_input)

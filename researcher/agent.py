@@ -8,7 +8,7 @@ import time
 import mlflow
 from openai import OpenAI
 
-from researcher.schema import Article, ArticleAssessment, COMPANIES, EvidencePack
+from researcher.schema import Article, ArticleAssessment, COMPANIES, Coverage, EvidencePack
 
 
 SYSTEM_PROMPT = """You are the Researcher in a functional-soda competitive intelligence workflow.
@@ -24,6 +24,11 @@ Extract all materially distinct relevant findings and metrics; there is no four-
 Preserve the reasoning and context needed for a later Analyst, not just headline snippets.
 Paraphrase; do not quote. Full source paragraphs are attached by code for the Analyst.
 Each finding must cite one or more supplied paragraph IDs that directly support it.
+Keep findings atomic: each brand, clause and metric must be supported by the cited text.
+Article statements are reported evidence, not automatically verified facts. Label forecasts,
+brand promotional claims, executive views and agency studies explicitly. Do not reproduce
+newsletter, related-story, author bio or contact text as beverage evidence. A product
+announcement is evidence of an announced tactic, not proof of trial or repeat purchasing.
 Copy its source's exact publication_date into the finding. Do not merge differently dated sources.
 Keep numerical values, bases, periods and speaker attribution accurate. Distinguish
 brand/executive claims and secondary reporting from independently verified results.
@@ -45,6 +50,9 @@ metrics. If an acquisition denial is central, include it as a dated finding, eve
 sources describe a sale. Relevance explanations must not add new uncited claims.
 Do not infer health benefits from marketing or sleep-related recipes.
 Include all four tracked companies in company_coverage. If evidence is absent, say so.
+Keep relevant functional-soda industry evidence even when it concerns another competitor.
+Use Cove Soda or Crazy D's company labels when the source actually concerns those brands;
+they matter to the downstream company brief even though the fixed question names four brands.
 Each finding_id must be unique. Coverage references only existing findings explicitly about
 that company. Missing text is unavailable, never summarize it from its title.
 State sample bias, date span, missing companies, self-reported metrics, and causal limits.
@@ -132,6 +140,22 @@ def research(question: str, articles: list[dict]) -> dict:
                 article_id=article.article_id, relevance="unavailable", summary="",
                 reason=f"No article text supplied: {article.access_note}",
             ))
+    # These are mechanical links, not new factual judgments. Derive coverage
+    # from the validated finding company labels instead of trusting the model
+    # to repeat a second, potentially inconsistent list of finding IDs.
+    generated_coverage = [item.model_dump() for item in pack.company_coverage]
+    generated_dates = {finding.finding_id:finding.publication_date for finding in pack.findings}
+    source_dates = {article.article_id:article.publication_date for article in sources}
+    for finding in pack.findings:
+        # Publication date is catalog metadata, not an event-date inference.
+        # Multi-date findings remain invalid and must be researched separately.
+        dates = {source_dates.get(c.article_id) for c in finding.citations}
+        if len(dates)==1 and None not in dates:
+            finding.publication_date = dates.pop()
+    pack.company_coverage = [Coverage(company=company,
+        finding_ids=[f.finding_id for f in pack.findings if company in f.companies],
+        gap='' if any(company in f.companies for f in pack.findings) else
+            'No findings for this company in the supplied article bodies.') for company in COMPANIES]
     validate_pack(pack, sources, question)
     return {
         "evidence_pack": pack.model_dump(),
@@ -143,5 +167,8 @@ def research(question: str, articles: list[dict]) -> dict:
             "usage": response.usage.model_dump() if response.usage else {},
             "prompt_sha256": hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest(),
             "llm_calls": 1,
+            "model_generated_coverage": generated_coverage,
+            "coverage_references_derived": True,
+            "model_generated_publication_dates": generated_dates,
         },
     }

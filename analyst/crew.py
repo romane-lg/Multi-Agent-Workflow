@@ -35,6 +35,20 @@ retail coverage. The single-can CAD 2.99 price and comparator thresholds in the 
 decision context, not a reason to claim an unobserved competitor pricing trigger has fired.
 Do not recommend a medical/health claim from influencer anecdotes or recipe trends.
 
+Every brand and clause in observed_fact must be supported by its cited paragraphs.
+Do not infer an Olipop messaging change from a Poppi article. National Canadian listings
+do not establish Ontario/BC sales or shelf performance; distinguish US Target formats.
+Compare like periods: a 2024 decline cannot show a 2026 celebrity campaign failed.
+Do not infer that a launch announcement proves trial or repeat. Treat publisher/brand
+claims as reported, not independently verified facts; repeated stories are not independent
+evidence. Retain uncertainties even when recommending a company-brief-led action.
+Without a documented comparable Canadian price trigger, propose only a margin-controlled
+multipack test or monitoring. Distinguish the 40% company gross-margin objective from the
+35% retail floor. Product test gates must use documented management objectives; do not
+use underperforming Berry Social as a success benchmark. Require management to approve
+an appropriate repeat-purchase benchmark. Preserve concept selection, consumer testing
+and launch deadlines; don't postpone selection until after a retail test by implication.
+
 Return 6-10 useful market insights when supported, and exactly one recommendation for each
 focus: ontario_retail, pricing, product_launch, marketing, bc_expansion. A recommendation
 without competitive support must be needs_evidence or a company-brief-led propose_test,

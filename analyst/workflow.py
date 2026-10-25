@@ -11,7 +11,7 @@ from analyst.crew import build_analyst_crew
 from analyst.handoff import make_handoff
 from analyst.render import render_report
 from analyst.schema import AnalystReport
-from analyst.validation import validate_report
+from analyst.validation import validate_report, canonicalize_documented_company_alias
 
 
 def write_json(path: Path, value: dict):
@@ -68,10 +68,15 @@ class ResearcherAnalystFlow(Flow):
         researcher_output, brief, context = handoff
         started = time.monotonic()
         crew = build_analyst_crew()
+        if researcher_output.get('run',{}).get('mode') == 'full_corpus_batched':
+            from corpus.budget import check_context
+            check_context(context,crew.agents[0].llm.model)
         output = crew.kickoff(inputs={"handoff_context": context})
         # Preserve raw output before validation so a failed response remains reviewable.
         (self.output_dir / "analyst_raw.txt").write_text(output.raw, encoding="utf-8")
         report = output.pydantic or AnalystReport.model_validate_json(output.raw)
+        generated_company_name = report.company_name
+        report = canonicalize_documented_company_alias(report,brief)
         validate_report(report, researcher_output, brief, self.as_of_date)
         write_json(self.output_dir / "analyst_report.json", report.model_dump())
         (self.output_dir / "analyst_report.md").write_text(render_report(report, researcher_output, brief), encoding="utf-8")
@@ -84,6 +89,7 @@ class ResearcherAnalystFlow(Flow):
             "as_of_date": self.as_of_date,
             "analyst_latency_seconds": round(time.monotonic() - started, 3),
             "analyst_usage": output.token_usage.model_dump() if output.token_usage else {},
+            "model_generated_company_name": generated_company_name,
             "reviewer_run": False, "quality_evaluation_run": False,
             "review_requested": self.review_enabled,
             "publication_status": "pending_review" if self.review_enabled else "unreviewed",

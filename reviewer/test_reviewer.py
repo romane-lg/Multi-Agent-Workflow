@@ -39,6 +39,25 @@ def assessment():
     })
 
 
+def live_response(value=None, review_input=None):
+    """Structured transport fixture, not a quality judgment."""
+    value = value or assessment()
+    review_input = review_input or inputs()
+    from reviewer.evidence import sentence_checks
+    p = review_input['upstream_handoff']['researcher_output']['sources'][0]
+    anchor = {'article_id': p['article_id'], 'paragraph_id': p['paragraphs'][0]['paragraph_id'], 'excerpt': p['paragraphs'][0]['text']}
+    return {'criteria': {c.criterion: c.explanation for c in value.criteria},
+        'item_reviews': {slot: {'explanation': 'Transport fixture explanation.', 'issues': [
+            i.model_dump(exclude={'issue_id', 'target_type', 'target_ids'}) for i in value.issues
+            if i.target_type == kind and target in i.target_ids]} for slot, (kind, target) in item_slots(review_input).items()},
+        'fact_checks': {key: {'verdict': 'supported', 'explanation': 'Transport fixture only.', 'anchors': [anchor], 'required_correction': ''}
+                        for key in sentence_checks(review_input)},
+        'risk_checks': {slot: {name: {'status': 'not_applicable', 'explanation': 'Transport fixture only.', 'required_correction': ''}
+                        for name in ['chronology', 'geography', 'causality', 'company_constraints']} for slot in item_slots(review_input)},
+        'report_issues': [i.model_dump(exclude={'issue_id', 'target_type', 'target_ids'}) for i in value.issues if i.target_type == 'report'],
+        'limitations': value.limitations}
+
+
 def with_issue(*, severity="blocking", report_level=False):
     result = assessment()
     issue = ReviewIssue(
@@ -171,8 +190,7 @@ class ReviewerTests(unittest.TestCase):
 
     def test_response_schema_requires_recommendation_checks(self):
         from pydantic import ValidationError
-        data = {"criteria": {c: "Checked the original evidence." for c in CRITERIA}, "report_issues": [], "limitations": [],
-                "item_reviews": {slot: {"explanation": "Supported in the supplied context.", "issues": []} for slot in item_slots(inputs())}}
+        data = live_response()
         model = build_review_response_model(inputs())
         parsed = model.model_validate(data)
         normalized = normalize_assessment(parsed.model_dump(), inputs())
@@ -195,7 +213,7 @@ class ReviewerTests(unittest.TestCase):
     def test_saved_review_never_reruns_or_modifies_upstream_agents(self):
         from reviewer.workflow import SavedAnalysisReviewFlow
         value = assessment()
-        fake = SimpleNamespace(raw=value.model_dump_json(), pydantic=value, token_usage=None)
+        fake = SimpleNamespace(raw=json.dumps(live_response(value)), pydantic=None, token_usage=None)
         crew = SimpleNamespace(agents=[SimpleNamespace(llm=SimpleNamespace(model="fixture"))],
                                tasks=[SimpleNamespace(description="Fixture review instructions")])
         from unittest.mock import Mock
@@ -220,7 +238,7 @@ class ReviewerTests(unittest.TestCase):
         events = []
         fake_analyst = SimpleNamespace(raw=report().model_dump_json(), pydantic=report(), token_usage=None)
         value = with_issue()
-        fake_review = SimpleNamespace(raw=value.model_dump_json(), pydantic=value, token_usage=None)
+        fake_review = SimpleNamespace(raw=json.dumps(live_response(value)), pydantic=None, token_usage=None)
         from unittest.mock import Mock
         analyst_crew = SimpleNamespace(kickoff=Mock(side_effect=lambda **kwargs: events.append("analyst") or fake_analyst))
         reviewer_crew = SimpleNamespace(agents=[SimpleNamespace(llm=SimpleNamespace(model="fixture"))],

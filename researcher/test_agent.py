@@ -91,6 +91,30 @@ class ResearcherTests(unittest.TestCase):
             research.__wrapped__(QUESTION, [article])
         client.assert_not_called()
 
+    def test_mechanical_coverage_and_publication_metadata_are_derived(self):
+        generated = pack()
+        generated.company_coverage[0].finding_ids = ['invented']
+        generated.findings[0].publication_date = '2026-01-01'
+        fake = MagicMock(output_parsed=generated,model='test',id='test-response',usage=None)
+        with patch.dict('os.environ',{'OPENAI_API_KEY':'test'}),patch('researcher.agent.OpenAI') as client:
+            client.return_value.responses.parse.return_value = fake
+            result = research.__wrapped__(QUESTION,[source().model_dump()])
+        self.assertEqual(result['evidence_pack']['findings'][0]['publication_date'],'2025-01-01')
+        self.assertEqual(result['evidence_pack']['company_coverage'][0]['finding_ids'],[])
+        self.assertEqual(result['run']['model_generated_publication_dates']['f1'],'2026-01-01')
+        self.assertEqual(result['run']['model_generated_coverage'][0]['finding_ids'],['invented'])
+
+    def test_mixed_date_citations_are_not_silently_repaired(self):
+        generated = pack()
+        second = source().model_copy(update={'article_id':'a2','publication_date':'2025-02-01'})
+        generated.article_assessments.append(generated.article_assessments[0].model_copy(update={'article_id':'a2'}))
+        generated.findings[0].citations.append(generated.findings[0].citations[0].model_copy(update={'article_id':'a2'}))
+        fake = MagicMock(output_parsed=generated,model='test',id='test-response',usage=None)
+        with patch.dict('os.environ',{'OPENAI_API_KEY':'test'}),patch('researcher.agent.OpenAI') as client:
+            client.return_value.responses.parse.return_value = fake
+            with self.assertRaisesRegex(ValueError,'publication date'):
+                research.__wrapped__(QUESTION,[source().model_dump(),second.model_dump()])
+
     def test_analyst_receives_complete_uncited_paragraphs(self):
         article = source().model_dump()
         article["paragraphs"].append({"paragraph_id": "p2", "text": "Extra context beyond the short summary. " * 250})

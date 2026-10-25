@@ -14,7 +14,7 @@ from pydantic import create_model
 from analyst.crew import ANALYST_INSTRUCTIONS
 from analyst.render import render_report
 from analyst.schema import AnalystReport, CompanyBrief
-from analyst.validation import validate_report
+from analyst.validation import validate_report, canonicalize_documented_company_alias
 from researcher.schema import StrictModel
 from reviewer.handoff import digest, make_review_input
 from reviewer.schema import ReviewResult
@@ -97,6 +97,7 @@ def validate_revision(generated, frozen):
     original = frozen["original_review_input"]
     upstream = original["upstream_handoff"]
     brief = CompanyBrief.model_validate(upstream["company_brief"])
+    parsed.report = canonicalize_documented_company_alias(parsed.report,brief)
     validate_report(parsed.report, upstream["researcher_output"], brief, upstream["as_of_date"])
     old = original["analyst_report"]
     if {i.insight_id for i in parsed.report.market_insights} != {i["insight_id"] for i in old["market_insights"]}:
@@ -141,6 +142,9 @@ class AnalystRevisionFlow(Flow):
         frozen, context = handoff
         started = time.monotonic()
         crew = build_revision_crew(frozen["selected_issues"])
+        if frozen['original_review_input']['upstream_handoff']['researcher_output'].get('run',{}).get('mode') == 'full_corpus_batched':
+            from corpus.budget import check_context
+            check_context(context,crew.agents[0].llm.model)
         output = crew.kickoff(inputs={"revision_context": context})
         (self.output_dir / "analyst_raw.txt").write_text(output.raw)
         generated = output.pydantic.model_dump() if output.pydantic else json.loads(output.raw)

@@ -1,7 +1,21 @@
 """Structural and budget checks; these are not an independent quality Reviewer."""
 import math
+import re
 
 from analyst.schema import AnalystReport, CompanyBrief, COMPETITORS, FOCUSES
+
+
+def canonicalize_documented_company_alias(report: AnalystReport, brief: CompanyBrief):
+    """Normalize only an alias actually documented in this company's brief."""
+    if report.company_name == brief.company_name:
+        return report
+    normalize = lambda value: re.sub(r'\W+',' ',value).casefold().strip()
+    supplied = normalize(report.company_name)
+    canonical = normalize(brief.company_name)
+    document = normalize(' '.join(page.text for page in brief.pages))
+    if supplied.startswith(canonical+' ') and f' {supplied} ' in f' {document} ':
+        return report.model_copy(update={'company_name':brief.company_name})
+    return report
 
 
 def validate_report(report: AnalystReport, researcher_output: dict, brief: CompanyBrief, as_of_date: str):

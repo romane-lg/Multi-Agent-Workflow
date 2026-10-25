@@ -5,6 +5,8 @@ For the new company-aware Researcher → Analyst collaboration, see
 and uses a CrewAI Flow plus a native Analyst Agent/Task. The commands below remain
 the older single-versus-multi-agent experiment scaffold.
 The downstream independent Reviewer is documented in [REVIEWER_README.md](REVIEWER_README.md).
+The expanded, resumable workflow and measured website-access results are documented in
+[FULL_CORPUS_README.md](FULL_CORPUS_README.md).
 The optional single Analyst revision and independent recheck are documented in
 [REVISION_README.md](REVISION_README.md).
 The final executive presentation agent and styled short brief are documented in
