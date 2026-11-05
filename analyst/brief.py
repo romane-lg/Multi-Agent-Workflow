@@ -10,16 +10,22 @@ from analyst.schema import BriefPage, CompanyBrief
 
 def extract_brief(path: Path, company_name: str = "Fizzera") -> CompanyBrief:
     executable = shutil.which("pdftotext")
-    if not executable:
-        raise RuntimeError("pdftotext is required; install Poppler before loading the PDF brief")
     pdf = path.read_bytes()
-    extraction = subprocess.run(
-        [executable, "-layout", "-enc", "UTF-8", str(path), "-"],
-        capture_output=True, text=True, check=True, timeout=30,
-    ).stdout
-    parts = extraction.split("\f")
-    if parts and not parts[-1].strip():
-        parts.pop()
+    if executable:
+        extraction = subprocess.run(
+            [executable, "-layout", "-enc", "UTF-8", str(path), "-"],
+            capture_output=True, text=True, encoding="utf-8", check=True, timeout=30,
+        ).stdout
+        parts = extraction.split("\f")
+        if parts and not parts[-1].strip():
+            parts.pop()
+    else:
+        try:
+            import fitz
+        except ImportError as exc:
+            raise RuntimeError("Install Poppler or PyMuPDF to extract the company PDF") from exc
+        with fitz.open(path) as document:
+            parts = [page.get_text() for page in document]
     pages = [BriefPage(page_number=i, text=text.strip()) for i, text in enumerate(parts, 1)]
     if not pages or not any(page.text for page in pages):
         raise ValueError("Company PDF contains no extractable text")

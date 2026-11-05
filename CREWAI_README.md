@@ -1,3 +1,10 @@
+# General workflow
+
+For **User query -> Planner -> Researcher -> Analyst -> Reviewer -> Output**
+with arbitrary companies and optional company context, use
+[INTELLIGENCE_README.md](INTELLIGENCE_README.md). The commands below describe
+the preserved Fizzera and older experiment workflows.
+
 # CrewAI Framework
 
 For the new company-aware Researcher → Analyst collaboration, see
@@ -98,3 +105,8 @@ For Experiment 1, keep these constant:
 - same output rubric
 
 The variable should be architecture only: single agent vs multi agent.
+
+## Independent benchmarking
+
+Phase 1 infrastructure, twelve draft tasks, independent human scoring and baseline
+experiment commands are in [BENCHMARKING_README.md](BENCHMARKING_README.md).

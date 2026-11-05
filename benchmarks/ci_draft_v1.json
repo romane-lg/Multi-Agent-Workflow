@@ -1,0 +1,534 @@
+{
+  "schema_version": "ci-benchmark-v1",
+  "version": "ci-draft-v1",
+  "status": "draft",
+  "created_at": "2026-11-04T00:00:00Z",
+  "description": "Twelve question designs for independent evaluation. All tasks are drafts; no reference fact, source URL, retrieval date or expected numerical answer is asserted. Not runnable until independently verified and frozen.",
+  "tasks": [
+    {
+      "task_id": "A01",
+      "category": "A",
+      "question": "Using Microsoft's fiscal 2024 annual report (year ended 2024-06-30), identify its publicly described product and service families, group them by reported business segment, and distinguish products from services.",
+      "companies": [
+        "Microsoft"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "2023-07-01 through 2024-06-30",
+      "expected_components": [
+        {
+          "component_id": "A01_C1",
+          "requirement": "List product/service families supported by the annual report.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "A01_C2",
+          "requirement": "Map each family to the report's business segments.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "A01_C3",
+          "requirement": "Cite the relevant dated report passages and state that this is a historical inventory.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "medium",
+      "known_challenges": [
+        "Annual-report categories are not an exhaustive current SKU catalogue.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "A02",
+      "category": "A",
+      "question": "Using Shopify's 2024 annual report, identify the geographic markets it explicitly reports serving or operating in, distinguish merchant/customer geography from company facilities, and do not infer country-level operations from worldwide availability.",
+      "companies": [
+        "Shopify"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "Calendar year 2024",
+      "expected_components": [
+        {
+          "component_id": "A02_C1",
+          "requirement": "Identify the report's explicitly documented geographic markets.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "A02_C2",
+          "requirement": "Distinguish customers, availability, legal presence and facilities.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "A02_C3",
+          "requirement": "State any country-level disclosure gaps.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "medium",
+      "known_challenges": [
+        "Global service availability is not evidence of an operating presence in every country.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "A03",
+      "category": "A",
+      "question": "Identify PepsiCo beverage products officially announced from 2025-01-01 through 2025-12-31. For each supported announcement provide product name, announcement date, stated launch market and whether the source describes an announcement or actual availability.",
+      "companies": [
+        "PepsiCo"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "2025-01-01 through 2025-12-31",
+      "expected_components": [
+        {
+          "component_id": "A03_C1",
+          "requirement": "Identify qualifying official product announcements.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "A03_C2",
+          "requirement": "Record announcement date, stated market and availability status.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "A03_C3",
+          "requirement": "Distinguish plans from completed launches and disclose source coverage limits.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "medium",
+      "known_challenges": [
+        "No assumed number of announcements; source completeness needs verification.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "B04",
+      "category": "B",
+      "question": "Compare Slack Pro with Microsoft Teams Essentials public US list prices as captured on 2026-11-04, using the same billing commitment and per-user billing unit. Report currency, billing terms, relevant inclusions and any qualifications; abstain where no dated comparable price snapshot exists.",
+      "companies": [
+        "Slack",
+        "Microsoft"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "Pricing snapshot on 2026-11-04",
+      "expected_components": [
+        {
+          "component_id": "B04_C1",
+          "requirement": "Extract both comparable US public list prices with currency and billing commitment.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "B04_C2",
+          "requirement": "Compare per-user units and material inclusions or exclusions.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "B04_C3",
+          "requirement": "Explain any lack of comparable dated evidence rather than substituting current prices.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "hard",
+      "known_challenges": [
+        "Dynamic prices require date-bound snapshots; list prices exclude negotiated contracts.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "B05",
+      "category": "B",
+      "question": "Compare the published meeting features of Zoom Workplace Pro and Microsoft Teams Essentials using official product documentation captured on 2026-11-04. Cover participant limits, meeting duration, recording, storage and material plan qualifications; mark missing disclosures.",
+      "companies": [
+        "Zoom",
+        "Microsoft"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "Product documentation snapshot on 2026-11-04",
+      "expected_components": [
+        {
+          "component_id": "B05_C1",
+          "requirement": "Compare participant limits and meeting duration.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "B05_C2",
+          "requirement": "Compare recording and storage with plan qualifications.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "B05_C3",
+          "requirement": "Identify missing, ambiguous or date-sensitive disclosures with citations.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "medium",
+      "known_challenges": [
+        "Feature names and plan entitlements change; do not mix paid tiers.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "B06",
+      "category": "B",
+      "question": "Using Shopify and Wix fiscal 2024 public reports, identify the countries where each explicitly documents company offices or facilities, show overlap and differences, and keep this separate from countries where customers can access their platforms.",
+      "companies": [
+        "Shopify",
+        "Wix"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "Fiscal reports covering 2024",
+      "expected_components": [
+        {
+          "component_id": "B06_C1",
+          "requirement": "Extract only explicitly named office/facility countries.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "B06_C2",
+          "requirement": "Identify the documented overlap and differences.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "B06_C3",
+          "requirement": "Distinguish facilities from service availability and disclose incomplete reporting.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "medium",
+      "known_challenges": [
+        "Do not interpret absent disclosure as proof of no operation.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "C07",
+      "category": "C",
+      "question": "Identify three distinct beverage-industry partnerships involving PepsiCo, The Coca-Cola Company or Danone officially announced between 2024-01-01 and 2025-12-31. Record partners, date, stated scope and geography; if fewer than three verified announcements are supplied, state the shortfall.",
+      "companies": [
+        "PepsiCo",
+        "The Coca-Cola Company",
+        "Danone"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "2024-01-01 through 2025-12-31",
+      "expected_components": [
+        {
+          "component_id": "C07_C1",
+          "requirement": "Identify up to three distinct supported partnerships with partners and dates.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "C07_C2",
+          "requirement": "Summarize stated scope and geography without inferring outcomes.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "C07_C3",
+          "requirement": "Avoid double-counting syndicated releases and explicitly report any evidence shortfall.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "hard",
+      "known_challenges": [
+        "Curators must verify that three qualifying distinct announcements exist before freezing.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "C08",
+      "category": "C",
+      "question": "Summarize acquisitions officially announced by PepsiCo and The Coca-Cola Company between 2020-01-01 and 2025-12-31 in the supplied frozen evidence. For each identify target, announcement date, disclosed consideration/currency and whether completion is separately confirmed.",
+      "companies": [
+        "PepsiCo",
+        "The Coca-Cola Company"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "2020-01-01 through 2025-12-31",
+      "expected_components": [
+        {
+          "component_id": "C08_C1",
+          "requirement": "Identify supported acquisition targets and announcement dates.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "C08_C2",
+          "requirement": "Record consideration and currency only when disclosed.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "C08_C3",
+          "requirement": "Separate announcements, agreed transactions and completed acquisitions.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "hard",
+      "known_challenges": [
+        "Different announcements may refer to the same transaction; unknown consideration remains unknown.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "C09",
+      "category": "C",
+      "question": "Compare officially announced cloud infrastructure expansion plans by Amazon Web Services and Microsoft between 2024-01-01 and 2025-12-31 in the supplied sources. Preserve locations, investment currency, planning horizon and announced-versus-completed status.",
+      "companies": [
+        "Amazon",
+        "Microsoft"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "2024-01-01 through 2025-12-31",
+      "expected_components": [
+        {
+          "component_id": "C09_C1",
+          "requirement": "Identify supported planned expansion locations and announcement dates.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "C09_C2",
+          "requirement": "Compare disclosed investment amounts with currencies and horizons.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "C09_C3",
+          "requirement": "Distinguish plans, construction and completed operating capacity.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "hard",
+      "known_challenges": [
+        "Amounts covering different periods or geographies are not directly comparable.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "D10",
+      "category": "D",
+      "question": "Compare Slack Pro and Microsoft Teams Essentials US public list pricing for the 2026-11-04 snapshot when the frozen test input deliberately marks one key pricing source unavailable. State what can be supported, what cannot, and what evidence is needed; do not recover missing prices from titles.",
+      "companies": [
+        "Slack",
+        "Microsoft"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "Controlled source-unavailability condition at 2026-11-04",
+      "expected_components": [
+        {
+          "component_id": "D10_C1",
+          "requirement": "Use only readable pricing evidence.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "D10_C2",
+          "requirement": "Explicitly identify the unavailable source and unsupported comparison.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "D10_C3",
+          "requirement": "Abstain from the missing figure and identify the required additional evidence.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "hard",
+      "known_challenges": [
+        "Controlled missing-source condition must be created and documented; this does not assert a real website outage.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "D11",
+      "category": "D",
+      "question": "Reconcile the two differing Microsoft fiscal 2024 revenue figures selected by the benchmark curator in the frozen source pack. Identify each value's source, currency, units, period and scope; explain a supported reconciliation or explicitly leave the contradiction unresolved.",
+      "companies": [
+        "Microsoft"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "Fiscal year ended 2024-06-30; curator-selected conflicting-source condition",
+      "expected_components": [
+        {
+          "component_id": "D11_C1",
+          "requirement": "State each supplied figure with source, units, currency, period and scope.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "D11_C2",
+          "requirement": "Check whether definitions or periods explain the difference.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "D11_C3",
+          "requirement": "Provide only an evidenced reconciliation, otherwise retain an explicit unresolved conflict.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "hard",
+      "known_challenges": [
+        "No conflicting values have yet been selected or verified; this task cannot be frozen until the challenge exists.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "D12",
+      "category": "D",
+      "question": "Using Microsoft's fiscal 2024 public disclosures, determine whether an exact product-level gross-margin percentage for Microsoft Teams is disclosed. Quote the scope of the reviewed disclosures; provide a number only if explicitly supported, otherwise state that it cannot be established from the supplied public evidence.",
+      "companies": [
+        "Microsoft"
+      ],
+      "as_of_date": "2026-11-04",
+      "period": "Fiscal year ended 2024-06-30",
+      "expected_components": [
+        {
+          "component_id": "D12_C1",
+          "requirement": "Check whether the requested product-level metric is explicitly disclosed.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "D12_C2",
+          "requirement": "Distinguish product-level, segment-level and company-level metrics.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "D12_C3",
+          "requirement": "Avoid inferring a private number; state the limits of the public evidence reviewed.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "official company product documentation",
+        "official annual report or regulatory filing",
+        "official investor-relations announcement or press release"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "hard",
+      "known_challenges": [
+        "Non-disclosure is not established yet; curators must document the search scope and verify the expected abstention.",
+        "Draft only: source facts, URLs, retrieval dates and exact input evidence require human verification."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    }
+  ],
+  "sha256": null
+}

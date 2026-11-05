@@ -1,0 +1,16 @@
+{
+  "benchmark_version": "ci-1.0.0",
+  "architecture_version": "sequential_v1",
+  "task_ids": null,
+  "repetitions": 1,
+  "batch_size": 5,
+  "models": {
+    "planner": "gpt-4o-mini",
+    "researcher": "gpt-4o-mini",
+    "analyst": "gpt-4.1",
+    "reviewer": "gpt-4.1"
+  },
+  "temperature": 0,
+  "seed": null,
+  "tools": "disabled"
+}

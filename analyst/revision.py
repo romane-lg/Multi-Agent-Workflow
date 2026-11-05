@@ -1,3 +1,4 @@
+from analyst.correction import FeedbackResponse, revision_response_model, report_diff
 """One bounded CrewAI Analyst revision followed by an independent recheck."""
 import difflib
 import hashlib
@@ -38,17 +39,8 @@ must say addressed, declined, or needs_evidence, explain why, and describe the a
 """
 
 
-class FeedbackResponse(StrictModel):
-    disposition: Literal["addressed", "declined", "needs_evidence"]
-    rationale: str
-    change_description: str
 
 
-def revision_response_model(issues):
-    responses = create_model("RequiredRevisionResponses", __base__=StrictModel,
-                             **{i["issue_id"]: (FeedbackResponse, ...) for i in issues})
-    return create_model("AnalystRevision", __base__=StrictModel,
-                        report=(AnalystReport, ...), feedback_responses=(responses, ...))
 
 
 def prepare_revision(analysis_run: Path, review_dir: Path, issue_ids: list[str]):
@@ -110,12 +102,6 @@ def validate_revision(generated, frozen):
     return parsed
 
 
-def report_diff(original: dict, revised: dict) -> str:
-    """Code-generated comparison, independent of the model's claimed change log."""
-    return "".join(difflib.unified_diff(
-        (json.dumps(original, ensure_ascii=False, sort_keys=True, indent=2) + "\n").splitlines(keepends=True),
-        (json.dumps(revised, ensure_ascii=False, sort_keys=True, indent=2) + "\n").splitlines(keepends=True),
-        fromfile="original/analyst_report.json", tofile="revision/analyst_report.json"))
 
 
 class AnalystRevisionFlow(Flow):
