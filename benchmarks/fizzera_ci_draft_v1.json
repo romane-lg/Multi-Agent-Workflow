@@ -1,0 +1,600 @@
+{
+  "schema_version": "ci-benchmark-v1",
+  "version": "fizzera-ci-draft-v1",
+  "status": "draft",
+  "created_at": "2026-11-09T00:00:00-05:00",
+  "description": "Twelve Fizzera functional-soda competitive-intelligence task designs for paired V1/V2 evaluation. All are unverified DRAFTS; no competitor reference facts or citations are asserted. Historical evidence ends 2026-10-09, with Fizzera context dated 2026-10-16. Requires human curation and a new verified release before execution. Generic ci_draft_v1.json is retained as an unchanged archive.",
+  "tasks": [
+    {
+      "task_id": "F01",
+      "category": "A",
+      "question": "Using only the supplied frozen sources published from 2024-10-10 through 2026-10-09, identify one distinct soda product launch or relaunch reported for Olipop and one for Poppi. For each, give product/flavor, publication and announcement or launch date, stated market and retailer/channel, and whether availability is announced or demonstrated. Cite exact passages. State any missing brand coverage rather than substituting an unrelated brand, and give one brief, conditional relevance statement for Fizzera's 2027 product decision using the supplied brief.",
+      "companies": [
+        "Olipop",
+        "Poppi"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "2024-10-10 through 2026-10-09; Fizzera planning context dated 2026-10-16",
+      "expected_components": [
+        {
+          "component_id": "F01_C1",
+          "requirement": "Identify one supported launch/relaunch per named brand, or explicitly report the missing brand evidence; do not treat syndicated coverage as a distinct launch.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F01_C2",
+          "requirement": "Record product/flavor, publication date, stated event date, market, channel and announcement-versus-availability status with exact source citations.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F01_C3",
+          "requirement": "Explain one conditional Fizzera relevance statement grounded in cited brief pages; do not infer demand, sales success or a preferred launch from announcement alone.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated official launch announcement",
+        "dated beverage-trade article with readable launch passages"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "easy",
+      "known_challenges": [
+        "Research objective: Retrieve dated competitor product launches and separate announcements from availability.",
+        "Fizzera context: pp. 2-5, 11-12: taste-first accessible positioning, current portfolio and one 2027 launch; no concept approved.",
+        "Curation required: Existing five-body pilot contains Olipop launch reporting, not a Poppi body. Curate a qualifying Poppi source; verify product, dates, market and attribution before creating a key.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "F02",
+      "category": "A",
+      "question": "For one curator-selected soda SKU per brand from Olipop, Poppi, Culture Pop and Zevia, use the frozen product labels and positioning passages dated on or before 2026-10-09 to tabulate serving volume, sugar, sweeteners, functional ingredients and the brand's stated benefits/positioning. Preserve each SKU's market and snapshot date, mark undisclosed fields, and distinguish advertised benefits from demonstrated health effects. Briefly identify a positioning consideration for Fizzera's taste-first, non-medical promise; do not assume all four brands contain prebiotics.",
+      "companies": [
+        "Olipop",
+        "Poppi",
+        "Culture Pop",
+        "Zevia"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "Market-specific product snapshots dated on or before 2026-10-09",
+      "expected_components": [
+        {
+          "component_id": "F02_C1",
+          "requirement": "Name exactly the four supplied SKUs with market, snapshot date and serving basis, or list explicit missing SKU evidence.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F02_C2",
+          "requirement": "Extract sugar, sweeteners, functional ingredients and stated benefits/positioning with label or source citations; preserve undisclosed fields.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F02_C3",
+          "requirement": "Attribute marketing claims rather than endorsing efficacy or inferring common ingredients across brands; identify a bounded Fizzera positioning consideration from the brief.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated official product label or nutrition/ingredient panel",
+        "dated official brand positioning page"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "easy",
+      "known_challenges": [
+        "Research objective: Retrieve a bounded four-brand product/positioning comparison without treating functional claims as proven efficacy.",
+        "Fizzera context: pp. 2-4: taste-first positioning, no unsupported medical claims, 355 mL caffeine-free portfolio and ingredient transparency.",
+        "Curation required: Curate one SKU/market per brand; verify labels separately from promotional benefits. Difficulty is easy only for bounded extraction; comparison complexity needs empirical calibration.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "F03",
+      "category": "A",
+      "question": "From the supplied frozen sources published from 2024-10-10 through 2026-10-09, identify at most one distinct retail distribution announcement per brand for Olipop, Poppi, Culture Pop and Zevia. Record brand, retailer/distributor, announcement date, stated country/province, store count if disclosed, and planned versus implemented status. Give an explicit gap for any uncovered brand and flag which announcements actually mention Ontario. Explain briefly why national or US distribution cannot establish Ontario availability for Fizzera's retail monitoring.",
+      "companies": [
+        "Olipop",
+        "Poppi",
+        "Culture Pop",
+        "Zevia"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "2024-10-10 through 2026-10-09; Fizzera planning context dated 2026-10-16",
+      "expected_components": [
+        {
+          "component_id": "F03_C1",
+          "requirement": "List no more than one supported distinct announcement per brand with exact citation, or record a brand-specific gap.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F03_C2",
+          "requirement": "Preserve partner, dates, geography, disclosed store count and planned/implemented status without filling missing numbers.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F03_C3",
+          "requirement": "Identify explicit Ontario coverage and distinguish US, Canadian national and province-specific evidence; link relevance to the brief without inferring local sales.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated official retailer or distributor announcement",
+        "dated competitor distribution announcement",
+        "dated independent retail or beverage-trade reporting"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "easy",
+      "known_challenges": [
+        "Research objective: Retrieve distribution announcements while preserving geography and implementation status.",
+        "Fizzera context: pp. 8-9: Ontario is the core priority; no national grocery agreement; provincial retail evidence is needed.",
+        "Curation required: No distribution Article pack is supplied. Verify retailer/brand scope and province rather than relying on discovery titles; no minimum of four announcements is assumed.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "F04",
+      "category": "B",
+      "question": "Compare one Olipop soda SKU and one Poppi soda SKU at the same Ontario retailer, using a curator-verified common price snapshot date within 2026-10-03 through 2026-10-09. Record CAD price, can volume, pack size, regular/promotional status, tax/deposit/shipping treatment and date. Compute per-can and per-355-mL prices only from compatible documented inputs. Compare cautiously with Fizzera's CAD 2.99 suggested 355 mL single-can price and assess its below-CAD-2.40 comparable-multipack review threshold. Do not infer a sustained 10% reduction from a single snapshot; report missing comparability instead.",
+      "companies": [
+        "Olipop",
+        "Poppi"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "Common verified Ontario price snapshot within 2026-10-03 through 2026-10-09",
+      "expected_components": [
+        {
+          "component_id": "F04_C1",
+          "requirement": "Record both SKU/retailer/province/date/currency/pack/volume/price entries and treatment of promotions, tax, deposit and shipping, citing exact snapshots.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F04_C2",
+          "requirement": "Show per-can and per-355-mL arithmetic with units and denominators; refuse a numeric ranking where inputs are incompatible or missing.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F04_C3",
+          "requirement": "Apply only supported brief thresholds; distinguish Fizzera suggested price from observed competitor price and a single promotion from a sustained reduction.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F04_C4",
+          "requirement": "State missing evidence and bounded pricing implications without inventing currency conversions, sales response or margin effects.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated Ontario retailer price capture",
+        "dated SKU pack-size and volume documentation"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "medium",
+      "known_challenges": [
+        "Research objective: Produce a reproducible Ontario price comparison and apply Fizzera thresholds only when justified.",
+        "Fizzera context: pp. 4, 10-11: suggested versus observed prices, CAD 2.99 single can, below-CAD-2.40 comparable multipack signal; sustained >=10% reductions require a time series.",
+        "Curation required: No comparable Ontario price snapshots are supplied. Human curator must select a common capture date in the fixed window; if none exists, revise dates in a new draft rather than backdating a capture.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "F05",
+      "category": "B",
+      "question": "Compare one documented Olipop campaign and one documented Poppi campaign announced from 2024-10-10 through 2026-10-09 using a dated campaign source and an independent reporting source per campaign where available. Identify target audience, message, creator/partner, channel and activation. Separate reported reach/engagement from measured trial, repeat purchase or incremental sales; mark absent outcomes. Propose one conditional adaptation for Fizzera's local Ontario marketing, respecting its preference for smaller creators and measurable purchasing rather than celebrity-scale spend.",
+      "companies": [
+        "Olipop",
+        "Poppi"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "2024-10-10 through 2026-10-09; Fizzera planning context dated 2026-10-16",
+      "expected_components": [
+        {
+          "component_id": "F05_C1",
+          "requirement": "Describe each selected campaign's date, market, audience, message, partner/channel and activation with source citations and source-type distinctions.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F05_C2",
+          "requirement": "Separate documented tactics and attributed engagement from conversion, incremental sales and causal ROI; disclose absent outcome data and non-independent coverage.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F05_C3",
+          "requirement": "Compare tactics and propose one bounded Fizzera adaptation tied to brief pages, with a measurement plan and stated transferability limits.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated official campaign or partnership materials",
+        "independent dated marketing-trade reporting"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "medium",
+      "known_challenges": [
+        "Research objective: Compare documented campaign tactics without confusing engagement with causal commercial performance.",
+        "Fizzera context: pp. 5-7, 12-14: target/customer context is fictional planning input; local campaigns, smaller creators, trial/repeat measurement and provisional marketing allocation.",
+        "Curation required: Olipop campaign passages exist in the five-body pilot but lack a complete matched campaign pack. Poppi campaign text and independent corroboration need curation; do not assume campaign success.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "F06",
+      "category": "B",
+      "question": "Using the supplied frozen Canadian-market portfolio lists and SKU/packaging records dated on or before 2026-10-09, compare Olipop, Poppi, Culture Pop and Zevia on listed flavors, permanent versus seasonal status, can volumes, pack formats and documented differentiation. Label US-only or market-uncertain records separately and do not treat the supplied lists as a complete global catalogue. Identify evidence-based overlaps or gaps relative to Fizzera's four-flavor 355 mL portfolio; do not infer consumer preference from flavor counts.",
+      "companies": [
+        "Olipop",
+        "Poppi",
+        "Culture Pop",
+        "Zevia"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "Market-specific product snapshots dated on or before 2026-10-09",
+      "expected_components": [
+        {
+          "component_id": "F06_C1",
+          "requirement": "List supplied flavor and format evidence per brand with dates, market, permanent/seasonal status and explicit missing fields.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F06_C2",
+          "requirement": "Compare documented differentiation and portfolio overlap on a consistent market/serving basis without claiming an exhaustive global catalogue.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F06_C3",
+          "requirement": "Relate supported similarities/gaps to Fizzera's actual portfolio and format, separating factual differentiation from untested demand assumptions.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated official market-specific portfolio or product catalogue",
+        "dated packaging/label captures",
+        "dated retailer SKU listings"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "medium",
+      "known_challenges": [
+        "Research objective: Compare bounded market-specific portfolios and formats without inferring completeness or demand.",
+        "Fizzera context: pp. 2-5, 11-12: four-flavor portfolio, taste/accessibility positioning, existing 355 mL format; proposed concepts are not approved.",
+        "Curation required: Existing roundups cover only selected launches, not four Canadian portfolios. Curate finite product lists with their scope and capture dates; missing Canada evidence remains a gap.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "F07",
+      "category": "C",
+      "question": "From frozen sources published from 2024-10-10 through 2026-10-09, select up to three distinct developments involving Olipop, Poppi, Culture Pop or Zevia that have explicit relevance to Ontario retail distribution, shelf assortment or pricing. Separate direct Ontario evidence from Canadian national or US context. Assess whether the evidence supports a conditional priority for Fizzera: new Ontario doors, productivity in existing stores, or a bounded promotional test. If Ontario-specific evidence is absent, state that the choice cannot be established rather than inventing local results.",
+      "companies": [
+        "Olipop",
+        "Poppi",
+        "Culture Pop",
+        "Zevia"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "2024-10-10 through 2026-10-09; Fizzera planning context dated 2026-10-16",
+      "expected_components": [
+        {
+          "component_id": "F07_C1",
+          "requirement": "Select up to three distinct cited developments with dates, named competitor, retailer/market and explicit Ontario connection, or acknowledge absent provincial evidence.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F07_C2",
+          "requirement": "Distinguish door count, assortment, velocity and promotions; do not infer provincial sales or shelf share from national listings.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F07_C3",
+          "requirement": "Present a conditional choice or justified deferral tied to Ontario objectives and brief constraints, specifying missing economics or local performance inputs.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated Ontario retailer or distributor announcements",
+        "dated Ontario product/price/assortment snapshots",
+        "independent Canadian retail-trade reporting"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "medium",
+      "known_challenges": [
+        "Research objective: Assess competitor developments against an Ontario-specific retail decision.",
+        "Fizzera context: pp. 8-10, 14-15: Ontario-first; 285 Ontario stores and 14 cans/store/week are brief baselines; 450/19 are targets, not achieved outcomes; margin/capacity/budget constraints.",
+        "Curation required: No Ontario-specific body pack is available. US retailer mentions in existing roundups cannot establish provincial coverage; verify baselines versus targets in the brief.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "F08",
+      "category": "C",
+      "question": "Using frozen evidence published from 2024-10-10 through 2026-10-09, assess documented Olipop, Poppi, Culture Pop and Zevia distribution or retailer assortment in British Columbia. Name up to two potential regional retail partners only where the evidence establishes BC operations and relevant assortment; label prospect fit as a hypothesis. Compare conditional expansion, maintaining the test footprint, and deferral for Fizzera. State what is unknown about regional demand, logistics and contribution margin; do not invent sales, shipping costs or an expansion return.",
+      "companies": [
+        "Olipop",
+        "Poppi",
+        "Culture Pop",
+        "Zevia"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "2024-10-10 through 2026-10-09; Fizzera planning context dated 2026-10-16",
+      "expected_components": [
+        {
+          "component_id": "F08_C1",
+          "requirement": "Extract BC-specific competitor/retailer evidence with market, dates and citations, distinguishing current listings from announcements and national context.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F08_C2",
+          "requirement": "Identify up to two evidence-supported BC partner prospects or an explicit shortfall; separate retailer presence from willingness to list Fizzera.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F08_C3",
+          "requirement": "Assess expansion/hold/defer conditionally against the brief and enumerate missing regional demand, costs, capacity and contribution inputs; no invented return.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated BC retailer assortment or store-location records",
+        "dated BC distribution announcements",
+        "independent Western Canadian retail reporting"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "medium",
+      "known_challenges": [
+        "Research objective: Assess BC expansion evidence without substituting national listings for local economics.",
+        "Fizzera context: pp. 8-9, 13-15: 40 BC test locations, evaluate 125 (not approved), Ontario-first, positive contribution after logistics and provisional BC allocation; finite manufacturing capacity.",
+        "Curation required: No BC body pack or logistics economics supplied. Curate actual provincial evidence; fewer than two supported prospects is a reportable shortfall, not permission to invent partners.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "F09",
+      "category": "C",
+      "question": "Using verified-source competitor activity from 2024-10-10 through 2026-10-09 and the supplied Fizzera brief, recommend conditionally one of Vanilla Cola, Tropical Mango, Ginger Lime or postponement for 2027. Compare all four options, separating documented competitor launches/positioning from evidence of consumer demand. Respect one major launch, the CAD 250000 development/launch-preparation ceiling, existing 355 mL equipment compatibility, caffeine-free requirement, preferred <=5 g sugar and review of new functional claims. Preserve the brief's decision/testing/launch deadlines and total investment constraint. Identify tests and decision gates; do not fabricate forecasts, demand or returns.",
+      "companies": [
+        "Olipop",
+        "Poppi",
+        "Culture Pop",
+        "Zevia"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "2024-10-10 through 2026-10-09; Fizzera planning context dated 2026-10-16",
+      "expected_components": [
+        {
+          "component_id": "F09_C1",
+          "requirement": "Compare Vanilla Cola, Tropical Mango, Ginger Lime and postponement against cited competitor activity and brief context; distinguish announcements from demand evidence.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F09_C2",
+          "requirement": "Give one conditional selection or justified postponement, acknowledge contrary/absent evidence and explain why alternatives are not selected without inventing forecasts.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F09_C3",
+          "requirement": "Check one-launch, CAD 250000, 355 mL, co-manufacturing, caffeine-free, preferred sugar and claim-review constraints; flag unverified feasibility rather than asserting approval.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F09_C4",
+          "requirement": "Preserve January 31 concept choice, March 31 testing and August 2027 launch objectives; propose measurable gates and respect total envelope/provisional allocations without invented ROI.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated competitor launch and positioning evidence",
+        "independently documented consumer-demand evidence if available",
+        "supplied Fizzera Sodas.pdf planning context"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "hard",
+      "known_challenges": [
+        "Research objective: Make a constrained product decision while preserving uncertainty and separating trends from demand.",
+        "Fizzera context: pp. 2-5, 11-12, 14-15: one concept, budget/format/manufacturing/claims/sugar constraints, milestones and total CAD 1.2 million envelope.",
+        "Curation required: All options require independent reference criteria, not a single predetermined winning flavor. Competitor announcements do not establish Canadian demand or manufacturing feasibility; scientific/regulatory reviews are future gates, not completed checks.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "F10",
+      "category": "D",
+      "question": "Assess an Ontario price comparison for one Olipop and one Poppi SKU using the frozen common-date condition within 2026-10-03 through 2026-10-09. The initial pack deliberately marks one required matching source unavailable and may include a clearly dated older price as a distractor. Report only readable, date/geography/currency/pack-compatible prices, identify the unsupported comparison and request the exact missing evidence. Do not infer price from a title, silently substitute the older price or assume a supplemental source exists. Explain the limited implication for Fizzera's price review; a correct abstention is acceptable.",
+      "companies": [
+        "Olipop",
+        "Poppi"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "Common verified Ontario price snapshot within 2026-10-03 through 2026-10-09",
+      "expected_components": [
+        {
+          "component_id": "F10_C1",
+          "requirement": "Inventory readable, unavailable and any stale pricing records with source/date/market/pack labels; distinguish controlled unavailability from a real website outage.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F10_C2",
+          "requirement": "Calculate only supported comparable figures and explicitly withhold the missing current price/ranking; no title-based or stale substitution.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F10_C3",
+          "requirement": "Specify the exact source/date/retailer/SKU information needed and the conditional Fizzera implication; correct abstention satisfies the requirement.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F10_C4",
+          "requirement": "Record whether matching additional evidence was actually supplied. If supplied in a permitted correction, update only the supported comparison with new citations; otherwise preserve the justified abstention and unresolved gap. Recovery is not required for this component to be correct.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated matching Ontario retailer price snapshots",
+        "dated pack-volume records",
+        "explicit frozen unavailable Article record"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "hard",
+      "known_challenges": [
+        "Research objective: Test honest abstention on unavailable/outdated prices and optional scoped recovery.",
+        "Fizzera context: pp. 4, 10-11: CAD price architecture/review thresholds; no automatic response to a temporary promotion.",
+        "Curation required: Curate and hash initial unavailable record and optional old-price distractor. Predefine a verified matching supplement before runs only if obtainable; otherwise preserve missing-evidence status. Do not choose it after seeing model outputs or force recovery.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "F11",
+      "category": "D",
+      "question": "Examine two genuinely differing, curator-verified source statements about Poppi retail distribution, both published from 2024-10-10 through 2026-10-09. Report each figure with exact citation, publication/event date, market, unit and definition, including whether counts describe stores, chains or potential availability. Determine whether scope, dates or definitions explain the difference; reconcile only when supported and otherwise retain the unresolved discrepancy. Explain the bounded implication for Fizzera's Ontario monitoring without treating US or national figures as Ontario store counts.",
+      "companies": [
+        "Poppi"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "2024-10-10 through 2026-10-09; Fizzera planning context dated 2026-10-16",
+      "expected_components": [
+        {
+          "component_id": "F11_C1",
+          "requirement": "Reproduce both genuinely differing source statements with exact citations, figures, units/definitions, dates and geography, preserving attribution.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F11_C2",
+          "requirement": "Check whether period, market, count definition or planned/implemented status explains the difference; do not average, cherry-pick or invent a reconciliation.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F11_C3",
+          "requirement": "State a supported reconciliation or explicit unresolved discrepancy, and a bounded Ontario/Fizzera implication with needed follow-up evidence.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated official Poppi or retail-partner distribution statements",
+        "dated independent retail/beverage reporting with attributable figures"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "hard",
+      "known_challenges": [
+        "Research objective: Test reconciliation of genuine differences in reported competitor figures.",
+        "Fizzera context: pp. 8-9, 16: Ontario retail relevance; competitor national scale is not provincial coverage or local sales.",
+        "Curation required: No differing pair is selected or verified. Both statements must be present initially and genuinely differ in the source, not be edited into contradiction. If no qualifying pair exists, revise this task before freezing; differences need not be factual errors.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    },
+    {
+      "task_id": "F12",
+      "category": "D",
+      "question": "Assess whether the supplied dated Olipop and Poppi campaign evidence supports investing Fizzera's provisional CAD 250000 incremental-marketing allocation. Separate documented campaign activities/reach/engagement from measured incremental trial, repeat purchasing, conversion and financial returns. Calculate an outcome or ROI only if the matching numerator, denominator, attribution/comparison basis and costs are explicitly supported; otherwise state it cannot be established. Recommend a conditional local test, deferral or staged spend with measurement gates, not a guaranteed return, respecting Fizzera's smaller-creator preference, Ontario priority and total envelope.",
+      "companies": [
+        "Olipop",
+        "Poppi"
+      ],
+      "as_of_date": "2026-10-16",
+      "period": "2024-10-10 through 2026-10-09; Fizzera planning context dated 2026-10-16",
+      "expected_components": [
+        {
+          "component_id": "F12_C1",
+          "requirement": "Separate cited competitor activities and any measured outcomes from unsupported ROI/conversion/return claims, recording dates, scope, denominators and attribution limits.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F12_C2",
+          "requirement": "Provide no numeric ROI, conversion rate or investment return without compatible outcome/cost/attribution inputs; explain exactly what is missing and avoid turning impressions/followers/internal fictional research into conversion evidence.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F12_C3",
+          "requirement": "Propose a conditional local test/deferral/staged investment, with baseline/comparison, incremental trial/repeat and cost measurement plus explicit go/no-go gates.",
+          "reference_fact_ids": []
+        },
+        {
+          "component_id": "F12_C4",
+          "requirement": "Treat CAD 250000 as provisional rather than compulsory spend, respect total envelope and smaller-creator/Ontario priorities; label all proposed thresholds as proposals, not observed results.",
+          "reference_fact_ids": []
+        }
+      ],
+      "allowed_source_types": [
+        "dated official competitor campaign disclosures",
+        "independent marketing reporting including measurement limitations",
+        "supplied Fizzera Sodas.pdf planning context"
+      ],
+      "reference_facts": [],
+      "reference_sources": [],
+      "difficulty": "hard",
+      "known_challenges": [
+        "Research objective: Test refusal to invent marketing ROI/conversion and propose a bounded measurement decision.",
+        "Fizzera context: pp. 6-7, 12-14: fictional customer survey/repeat measures are planning context, not campaign conversions; smaller creators, measurable trial/repeat, provisional CAD 250000 marketing/CAD 1.2 million total.",
+        "Curation required: Public campaign data may lack cost or incremental sales. Curators must verify the actual disclosure/search scope rather than assert universal nondisclosure. No positive ROI or numerical conversion key is invented.",
+        "Scoring: apply independent-human-v1 rubric to verified components, source support, attribution, chronology, geography and appropriate abstention; runtime Reviewer verdict is not ground truth.",
+        "Draft only: no reference facts, citations, verification attestation or input snapshot is supplied. Difficulty requires empirical calibration."
+      ],
+      "verification_status": "draft",
+      "verification": null,
+      "input_snapshot": null,
+      "input_sha256": null
+    }
+  ],
+  "sha256": null
+}
