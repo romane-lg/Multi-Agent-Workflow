@@ -1,0 +1,41 @@
+{
+  "dataset_name": "functional_soda_article_pool",
+  "snapshot_date": "2026-10-25",
+  "accepted_records": 255,
+  "readable_records": 146,
+  "unavailable_records": 109,
+  "researcher_findings": 136,
+  "recommended_input": "articles_cleaned.json",
+  "researcher_claims_regenerated_after_cleanup": false,
+  "private_company_outputs_included": false,
+  "files": {
+    "README.md": {
+      "sha256": "98bee80bf57370385914913b8d65eb5862f95b5cca2f4b9e1261d8aac352b533",
+      "bytes": 3115
+    },
+    "access_report.json": {
+      "sha256": "e2a1f788a6bd8127082f07bd55485c519b25935af27ad7c9a729e0177b3a36e3",
+      "bytes": 15973
+    },
+    "access_report.md": {
+      "sha256": "8652d9504b30540c586d9b857788e338f195c5a477c547bb8a601d8c4dd09f99",
+      "bytes": 960
+    },
+    "articles_cleaned.json": {
+      "sha256": "11eabcd045198fc735d9fbdff95cb545ba6148a0e37b48315b21d8d1ef8824a3",
+      "bytes": 951486
+    },
+    "articles_recovered.json": {
+      "sha256": "86517dc2430035ab69a0a0c95738ad163e1e51ebc726410e7dc37f5ccdf0ecac",
+      "bytes": 1001587
+    },
+    "cleanup_audit.json": {
+      "sha256": "768eb3ef463cdead5dee17c7254ac2ee8ba374db107107d59969f546526a67d5",
+      "bytes": 394957
+    },
+    "researcher_evidence_pack.json": {
+      "sha256": "a1c3cfbb83b571b60784940e63decf9837d04597b9ace7ede3e7ab1372669342",
+      "bytes": 235721
+    }
+  }
+}

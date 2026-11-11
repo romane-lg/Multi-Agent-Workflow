@@ -39,6 +39,12 @@ attempts are local in `.researcher/full_pool/access_v1/` and `recovered_v1/`.
 The final readable audit is `recovered_v1/access_report.md`. Public article bodies and
 company documents remain ignored by Git.
 
+An article-only export is now tracked in [`data/article_pool`](data/article_pool/README.md).
+Its recommended input is `data/article_pool/articles_cleaned.json`: 255 accepted URL
+records, including 146 recovered bodies and 109 explicit gaps, from the 25 October snapshot.
+The export also includes the pre-cleanup text, Researcher evidence pack and audit reports.
+Private Fizzera documents, downstream company analysis, credentials and traces stay local.
+
 ## Stronger extraction
 
 - Bounded robots redirects, permission caching and publisher crawl delays.

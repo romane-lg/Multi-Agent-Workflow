@@ -1,0 +1,393 @@
+{
+  "selected_urls": 255,
+  "checked_urls": 255,
+  "remaining_urls": 0,
+  "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+  "legacy_success_on_same_captured_responses": 105,
+  "enhanced_success": 115,
+  "enhanced_unavailable": 140,
+  "unavailable_percent_of_checked": 54.9,
+  "direct_article_access_barriers": 76,
+  "direct_barrier_percent_of_checked": 29.8,
+  "recovered_vs_legacy": 10,
+  "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee.",
+  "finished_at": "2026-10-25T15:00:22.513672+00:00",
+  "discovery_status_counts": {
+    "accepted": 255,
+    "rejected": 309,
+    "review": 12
+  },
+  "publisher_breakdown": {
+    "www.prnewswire.com": {
+      "selected_urls": 20,
+      "checked_urls": 20,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 20,
+      "enhanced_success": 20,
+      "enhanced_unavailable": 0,
+      "unavailable_percent_of_checked": 0.0,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "success": 20
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.businesswire.com": {
+      "selected_urls": 12,
+      "checked_urls": 12,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 0,
+      "enhanced_success": 0,
+      "enhanced_unavailable": 12,
+      "unavailable_percent_of_checked": 100.0,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "network_error": 12
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.globenewswire.com": {
+      "selected_urls": 5,
+      "checked_urls": 5,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 0,
+      "enhanced_success": 0,
+      "enhanced_unavailable": 5,
+      "unavailable_percent_of_checked": 100.0,
+      "direct_article_access_barriers": 5,
+      "direct_barrier_percent_of_checked": 100.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "access_denied": 5
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.marketingdive.com": {
+      "selected_urls": 14,
+      "checked_urls": 14,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 1,
+      "enhanced_success": 1,
+      "enhanced_unavailable": 13,
+      "unavailable_percent_of_checked": 92.86,
+      "direct_article_access_barriers": 13,
+      "direct_barrier_percent_of_checked": 92.86,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "access_denied": 13,
+        "success": 1
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "adage.com": {
+      "selected_urls": 19,
+      "checked_urls": 19,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 0,
+      "enhanced_success": 0,
+      "enhanced_unavailable": 19,
+      "unavailable_percent_of_checked": 100.0,
+      "direct_article_access_barriers": 19,
+      "direct_barrier_percent_of_checked": 100.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "access_denied": 19
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.modernretail.co": {
+      "selected_urls": 6,
+      "checked_urls": 6,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 6,
+      "enhanced_success": 6,
+      "enhanced_unavailable": 0,
+      "unavailable_percent_of_checked": 0.0,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "success": 6
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.fooddive.com": {
+      "selected_urls": 18,
+      "checked_urls": 18,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 0,
+      "enhanced_success": 0,
+      "enhanced_unavailable": 18,
+      "unavailable_percent_of_checked": 100.0,
+      "direct_article_access_barriers": 18,
+      "direct_barrier_percent_of_checked": 100.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "access_denied": 18
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.marketingbrew.com": {
+      "selected_urls": 1,
+      "checked_urls": 1,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 1,
+      "enhanced_success": 1,
+      "enhanced_unavailable": 0,
+      "unavailable_percent_of_checked": 0.0,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "success": 1
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.retailbrew.com": {
+      "selected_urls": 1,
+      "checked_urls": 1,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 0,
+      "enhanced_success": 0,
+      "enhanced_unavailable": 1,
+      "unavailable_percent_of_checked": 100.0,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "robots_unavailable": 1
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.forbes.com": {
+      "selected_urls": 13,
+      "checked_urls": 13,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 0,
+      "enhanced_success": 0,
+      "enhanced_unavailable": 13,
+      "unavailable_percent_of_checked": 100.0,
+      "direct_article_access_barriers": 13,
+      "direct_barrier_percent_of_checked": 100.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "access_denied": 13
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.morningbrew.com": {
+      "selected_urls": 1,
+      "checked_urls": 1,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 0,
+      "enhanced_success": 0,
+      "enhanced_unavailable": 1,
+      "unavailable_percent_of_checked": 100.0,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "robots_unavailable": 1
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.cnbc.com": {
+      "selected_urls": 7,
+      "checked_urls": 7,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 7,
+      "enhanced_success": 7,
+      "enhanced_unavailable": 0,
+      "unavailable_percent_of_checked": 0.0,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "success": 7
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.bloomberg.com": {
+      "selected_urls": 8,
+      "checked_urls": 8,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 0,
+      "enhanced_success": 0,
+      "enhanced_unavailable": 8,
+      "unavailable_percent_of_checked": 100.0,
+      "direct_article_access_barriers": 8,
+      "direct_barrier_percent_of_checked": 100.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "access_denied": 8
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.wsj.com": {
+      "selected_urls": 7,
+      "checked_urls": 7,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 0,
+      "enhanced_success": 0,
+      "enhanced_unavailable": 7,
+      "unavailable_percent_of_checked": 100.0,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "robots_disallowed": 7
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.reuters.com": {
+      "selected_urls": 4,
+      "checked_urls": 4,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 0,
+      "enhanced_success": 0,
+      "enhanced_unavailable": 4,
+      "unavailable_percent_of_checked": 100.0,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "robots_disallowed": 4
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.bevnet.com": {
+      "selected_urls": 87,
+      "checked_urls": 87,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 50,
+      "enhanced_success": 50,
+      "enhanced_unavailable": 37,
+      "unavailable_percent_of_checked": 42.53,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "insufficient_visible_text": 22,
+        "restricted_metadata_no_public_article_container": 15,
+        "success": 50
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.foodbev.com": {
+      "selected_urls": 22,
+      "checked_urls": 22,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 20,
+      "enhanced_success": 20,
+      "enhanced_unavailable": 2,
+      "unavailable_percent_of_checked": 9.09,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 0,
+      "failure_reasons": {
+        "success": 20,
+        "insufficient_visible_text": 2
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    },
+    "www.foodnavigator-usa.com": {
+      "selected_urls": 10,
+      "checked_urls": 10,
+      "remaining_urls": 0,
+      "denominator": "unique accepted article URLs; not publisher domains and not all discovery candidates",
+      "legacy_success_on_same_captured_responses": 0,
+      "enhanced_success": 10,
+      "enhanced_unavailable": 0,
+      "unavailable_percent_of_checked": 0.0,
+      "direct_article_access_barriers": 0,
+      "direct_barrier_percent_of_checked": 0.0,
+      "recovered_vs_legacy": 10,
+      "failure_reasons": {
+        "success": 10
+      },
+      "limitation": "Robots failures and network failures do not prove that an article is blocked for a human reader. Extraction success is not a completeness guarantee."
+    }
+  },
+  "http_extraction_success": 115,
+  "browser_attempts": 38,
+  "browser_publishers_sampled": 8,
+  "browser_recovered": 31,
+  "final_success": 146,
+  "final_unavailable": 109,
+  "final_unavailable_percent": 42.75,
+  "http_failure_reasons": {
+    "access_denied": 76,
+    "success": 115,
+    "robots_unavailable": 2,
+    "robots_disallowed": 11,
+    "insufficient_visible_text": 24,
+    "restricted_metadata_no_public_article_container": 15,
+    "network_error": 12
+  },
+  "final_unavailable_reasons": {
+    "robots_disallowed": 11,
+    "network_error": 12,
+    "restricted_metadata_no_public_article_container": 15,
+    "insufficient_visible_text": 24,
+    "access_denied": 45,
+    "robots_unavailable": 2
+  },
+  "browser_failures": [
+    {
+      "publisher": "adage.com",
+      "article_id": "21db3b34cf86381d0b42",
+      "reason": "browser_http_403"
+    },
+    {
+      "publisher": "www.bevnet.com",
+      "article_id": "16bc96e6c30248b011a2",
+      "reason": "browser_http_403"
+    },
+    {
+      "publisher": "www.bevnet.com",
+      "article_id": "1667d14eee93d04b8bfc",
+      "reason": "browser_http_403"
+    },
+    {
+      "publisher": "www.bloomberg.com",
+      "article_id": "1f65118b43b5de9c86c6",
+      "reason": "browser_http_403"
+    },
+    {
+      "publisher": "www.foodbev.com",
+      "article_id": "603e0eea67fa4844a4dd",
+      "reason": "no_visible_article_container"
+    },
+    {
+      "publisher": "www.forbes.com",
+      "article_id": "227f4a0f2ff480dde436",
+      "reason": "browser_http_403"
+    },
+    {
+      "publisher": "www.globenewswire.com",
+      "article_id": "2ab61e83c632049a0bfc",
+      "reason": "browser_http_403"
+    }
+  ]
+}
